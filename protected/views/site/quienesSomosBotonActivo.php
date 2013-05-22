@@ -1,0 +1,53 @@
+<?php
+echo CHtml::image( Yii::app()->request->baseUrl.'/images/botonquienessomosactivo.jpg');
+Yii::app ()->clientScript->registerScript ( 'QuienesSomos3x1', "
+	$(document).ready(function(){
+		$.ajax({
+			'url':'index.php?r=site/QuienesSomos2x2activo',
+			'data':'',
+			'type':'POST',
+			'cache':false,
+			'success':function(data){
+				$('#contenedorLeftMiddleImg').html(data);
+			}
+		});
+		$.ajax({
+			'url':'index.php?r=site/QuienesSomos3x1activo',
+			'data':'',
+			'type':'POST',
+			'cache':false,
+			'success':function(data){
+				$('#contenedorInfoTopImg').html(data);
+			}
+		});
+		$.ajax({
+			'url':'index.php?r=site/QuienesSomos4x2activo',
+			'data':'',
+			'type':'POST',
+			'cache':false,
+			'success':function(data){
+				$('#contenedorInfoMiddle').html(data);
+			}
+		});
+		$.ajax({
+			'url':'index.php?r=site/QuienesSomos2x1activo',
+			'data':'',
+			'type':'POST',
+			'cache':false,
+			'success':function(data){
+				$('#contenedorInfoBottomImg').html(data);
+			}
+		});
+		$.ajax({
+			'url':'index.php?r=site/BotonRegresar',
+			'data':'',
+			'type':'POST',
+			'cache':false,
+			'success':function(data){
+				$('#contenedorInfoTopBotones').html(data);
+			}
+		});
+	});
+" );
+
+?>

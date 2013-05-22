@@ -1,0 +1,40 @@
+--1. Terminar botones de edición
+--2. Verificar boton comunidad imex que se baja en chrome
+--3. Añadir vínculos a los botones
+4. Instalar extensión eguiders
+5. Fechas para Sliders, si no hay fecha, se mostrará la imágen
+
+
+<div id="botonQuienesSomos">
+	<?php
+	$botonQuienesSomos=CHtml::image( Yii::app()->request->baseUrl.'/images/botonquienessomos.jpg');
+	echo CHtml::link($botonQuienesSomos,
+			$this->CreateUrl('site/MenuQuienesSomos'),
+			array(
+				'id'=>'botonQuienesSomos'.$randomId,
+				'ajax'=>array(
+					'type'=>'POST',
+					'url'=>$this->CreateUrl('site/MenuQuienesSomos'),
+					'success'=>"function(data){
+						$('#contenedorPrincipal').html(data);
+					}"
+				)
+			)
+		);				
+	?>
+	</div>
+	<div id="botonAdmisiones">
+	<?php 
+		$botonAdmisiones = CHtml::image( Yii::app()->request->baseUrl.'/images/botonadmisiones.jpg');
+		echo CHtml::link($botonAdmisiones,
+			$this->CreateUrl('site/MenuAdmisiones'),
+			array(
+					'id'=>'botonAdmisiones'.$randomId,
+			)
+		);
+	?>
+	</div>
+	<?php
+		echo CHtml::image( Yii::app()->request->baseUrl.'/images/botonexalumnos.jpg');
+		echo CHtml::image( Yii::app()->request->baseUrl.'/images/botoncomunidadimex.jpg');
+	?>
